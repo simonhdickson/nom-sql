@@ -364,9 +364,9 @@ fn len_as_u16(len: &[u8]) -> u16 {
     match str::from_utf8(len) {
         Ok(s) => match u16::from_str(s) {
             Ok(v) => v,
-            Err(e) => panic!(e),
+            Err(e) => std::panic::panic_any(e),
         },
-        Err(e) => panic!(e),
+        Err(e) => std::panic::panic_any(e),
     }
 }
 
